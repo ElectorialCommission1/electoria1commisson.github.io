@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applicant Registration - Step 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="logo-placeholder.png" alt="Electoral Commission Logo" class="logo">
+            <span class="logo-text">Electoral Commission</span>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2 class="form-title">Email Verification</h2>
+        <p>Please enter your email address to receive a verification code.</p>
+        
+        <form id="emailForm">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="e.g., yourname@example.com" required>
+                <small class="hint-text">Enter a valid email address.</small>
+            </div>
+
+            <button type="submit" id="sendEmailButton" class="next-button" disabled>Send Verification Email</button>
+        </form>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const emailInput = document.getElementById('email');
+            const sendButton = document.getElementById('sendEmailButton');
+            const emailForm = document.getElementById('emailForm');
+
+            // Regex for basic email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            function checkEmailValidity() {
+                // Check if the input is not empty and matches the basic email pattern
+                if (emailRegex.test(emailInput.value.trim())) {
+                    sendButton.disabled = false;
+                } else {
+                    sendButton.disabled = true;
+                }
+            }
+
+            emailInput.addEventListener('input', checkEmailValidity);
+
+            emailForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                if (!sendButton.disabled) {
+                    // Simulate email sending and navigate to the final page
+                    console.log(`Verification email sent to: ${emailInput.value}`);
+                    alert("Verification email sent! Navigating to final step...");
+                    window.location.href = 'step3.html';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

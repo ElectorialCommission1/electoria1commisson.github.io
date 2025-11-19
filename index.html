@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applicant Registration - Step 1</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="logo-placeholder.png" alt="Electoral Commission Logo" class="logo">
+            <span class="logo-text">Electoral Commission</span>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2 class="form-title">Applicant Registration</h2>
+        <p>Please fill in your details below</p>
+        
+        <form id="registrationForm1">
+            <div class="form-group">
+                <label for="firstName">Full Name</label>
+                <div class="name-fields">
+                    <input type="text" id="firstName" placeholder="First Name" required>
+                    <input type="text" id="middleName" placeholder="Middle Name (Optional)">
+                    <input type="text" id="lastName" placeholder="Last Name" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Gender</label>
+                <div class="gender-options">
+                    <label>
+                        <input type="radio" name="gender" value="Male" required> Male
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" value="Female"> Female
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="dob">Date of Birth (DD/MM/YYYY)</label>
+                <input type="date" id="dob" required>
+                <small class="hint-text" id="dob-hint">You must be born on or before 2007.</small>
+            </div>
+
+            <div class="form-group">
+                <label for="district">District / City</label>
+                <select id="district" required>
+                    <option value="">Select District/City</option>
+                    </select>
+            </div>
+
+            <div class="form-group">
+                <label for="village">Village</label>
+                <input type="text" id="village" placeholder="Village" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Telephone Number</label>
+                <div class="phone-input-container">
+                    <div class="country-code">
+                        <span class="flag-icon">🇺🇬</span>
+                        <span class="code">+256</span>
+                    </div>
+                    <input type="tel" id="phone" pattern="[0-9]{9}" maxlength="9" placeholder="e.g., 701234567" required>
+                </div>
+                <small class="hint-text">Enter 9 digits (e.g., 701234567)</small>
+            </div>
+
+            <button type="submit" id="nextButton" class="next-button" disabled>Next</button>
+        </form>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

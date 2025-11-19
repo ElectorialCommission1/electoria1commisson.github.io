@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submission Successful</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Specific CSS for the celebration page */
+        .celebration-container {
+            text-align: center;
+            padding: 50px;
+            margin-top: 50px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            position: relative; /* For popper animation positioning */
+            overflow: hidden; /* Keep confetti within bounds */
+        }
+
+        .success-icon {
+            font-size: 80px;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        h2.success-title {
+            color: #4CAF50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        p.success-message {
+            color: #555;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        
+        /* Basic Confetti/Party Popper Animation */
+        @keyframes confetti-fall {
+            0% { transform: translateY(-100%) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: var(--color);
+            border-radius: 50%;
+            animation: confetti-fall 5s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="logo-placeholder.png" alt="Electoral Commission Logo" class="logo">
+            <span class="logo-text">Electoral Commission</span>
+        </div>
+    </header>
+
+    <main class="celebration-container">
+        <div class="success-icon">✅</div>
+        <h2 class="success-title">Submission Successful!</h2>
+        <p class="success-message">Congratulations! Your application has been successfully submitted and verified.</p>
+        <button onclick="window.location.href='index.html'" class="next-button" style="background-color: #007bff;">Go to Home</button>
+    </main>
+
+    <script>
+        // JavaScript for Confetti Animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.querySelector('.celebration-container');
+            const colors = ['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4CAF50', '#8bc34a', '#cddc39', '#ffeb3b', '#ffc107', '#ff9800', '#ff5722'];
+
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.setProperty('--color', colors[Math.floor(Math.random() * colors.length)]);
+                confetti.style.left = `${Math.random() * 100}%`;
+                confetti.style.animationDelay = `${Math.random() * -5}s`;
+                confetti.style.animationDuration = `${3 + Math.random() * 2}s`;
+                container.appendChild(confetti);
+            }
+        });
+    </script>
+</body>
+</html>
